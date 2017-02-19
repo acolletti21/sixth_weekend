@@ -10,3 +10,49 @@
 #
 # Part of the challenge is to determine which functionality belongs in the Thesaurus class,
 # and which belongs in the Entry class.
+
+class Thesaurus
+  attr_accessor :entries
+
+  def initialize
+    @entries = []
+  end
+
+
+  def add_entry(input)
+    entry = Entry.new(input)
+    @entries << entry
+  end
+
+
+  def delete_entry(entry)
+    @entries.delete(entry)
+  end
+
+end
+
+
+
+
+class Entry
+  attr_accessor :word, :synonyms, :antonyms
+
+  def initialize(input)
+    @word = input[:word]
+    @synonyms = input[:synonyms]
+    @antonyms = input[:antonyms]
+  end
+
+  def add_synonym(synonym)
+    self.synonyms << synonym
+  end
+
+  def add_antonym(antonym)
+    self.antonyms << antonym
+  end
+
+end
+
+
+
+
